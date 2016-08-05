@@ -197,11 +197,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChitsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608041838421_Initial version.cs" />
+    <Compile Include="Migrations\201608041838421_Initial version.Designer.cs">
+      <DependentUpon>201608041838421_Initial version.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608050457025_Update.cs" />
+    <Compile Include="Migrations\201608050457025_Update.Designer.cs">
+      <DependentUpon>201608050457025_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chit.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -271,6 +281,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Chits\Create.cshtml" />
+    <Content Include="Views\Chits\Delete.cshtml" />
+    <Content Include="Views\Chits\Details.cshtml" />
+    <Content Include="Views\Chits\Edit.cshtml" />
+    <Content Include="Views\Chits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +300,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608041838421_Initial version.resx">
+      <DependentUpon>201608041838421_Initial version.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608050457025_Update.resx">
+      <DependentUpon>201608050457025_Update.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
