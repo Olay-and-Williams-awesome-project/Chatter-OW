@@ -1,8 +1,94 @@
 ﻿@model IEnumerable<Chatter.Models.Chit>
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Index";
 }
+<header class="container-fluid">
+    <div class="profilePicContainer">
+        @*<img class="profilePic" src="~/Images/tapestry-755294_960_720.jpg" />*@
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="headerBanner">
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: white;">
+        <div class="container profileNavigation">
+            <div class="col-lg-3">
+               
+            </div>
+                <div class="col-lg-9" id="profileNavMenu">
+                    <ul class="profileNav">
+                        <li class="pull-left">
+                            <a href="#" class="profileNavItem pull-left">
+                                <span class="profileNavLabel">Chits</span>
+                                <span class="profileNavValue">#</span>
+                            </a>
+                        </li>
+                        <li class="pull-left">
+                            <a href="#" class="profileNavItem pull-left">
+                                <span class="profileNavLabel">Following</span>
+                                <span class="profileNavValue">#</span>
+                            </a>
+                        </li>
+                        <li class="pull-left">
+                            <a href="#" class="profileNavItem pull-left">
+                                <span class="profileNavLabel">Followers</span>
+                                <span class="profileNavValue">#</span>
+                            </a>
+                        </li>
+                        <li class="pull-left">
+                            <a href="#" class="profileNavItem pull-left">
+                                <span class="profileNavLabel">Likes</span>
+                                <span class="profileNavValue">#</span>
+                            </a>
+                        </li>
+                        <li class="EditProfile pull-right"><button type="button" class="btn btn-secondary pull-right"><span class="buttonText">Edit Profile</span></button></li>
+                    </ul>
+                </div>
+        </div>
+        
+    </div>
+</header>
+
+<div class="container-fluid ChitsIndexContent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 leftSide">
+                <div class="profileCard">
+                    <h1 class="profileCard-name"><a href="#"></a></h1>
+                    <h2 class="profileCard-handler"><a href="#">@User.Identity.Name</a></h2>
+                    <p class="profileCard-bio">Something something something</p>
+                    <div class="profileCard-joinDate">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span>Joined August 2016</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 CenterSide">
+                <div class="profileContentHeader">
+                    <ul class="profileHeader">
+                        <li>Chits</li>
+                        <li><a href="#">Chits & replies</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </div>
+                <div class="profileContent">
+                    <ol>
+                        <li>
+                            <div class="myProfileChits">
+
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-lg-3 RightSide"></div>
+        </div>
+    </div>
+</div>
 
 <h2>Index</h2>
 

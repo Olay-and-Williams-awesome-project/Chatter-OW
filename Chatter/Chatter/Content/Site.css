@@ -3,12 +3,95 @@
     padding-bottom: 20px;
     background-color: #F5F8FA;
     color:#292f33;
+    height: 100%;
+}
+body p{
+    color: black;
+}
+h4 a{
+    font-size: 10px;
+}
+#loginLink{
+    background-color: rgba(255,255,255,0.3);
+    border: none !important;
+}
+#header {
+    /*background-image: url('../Images/tapestry-755294_960_720.jpg');*/
+    height: 200px; 
+    background-color: #1da1f2;
+    background-size: 100%;
+    background-position: center;
+    overflow: hidden;
+    /*position: absolute;*/
+}
+header.container-fluid{
+    padding: 0;
+}
+#header a{
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    margin: 15px 10px 0 10px;
+    padding: 10px 35px;
+    font-size: 16px;
+    color: azure;
+    font-weight: 200;
+    cursor: pointer;
+    text-align: center;
+    line-height: normal;
+    box-sizing: border-box;
+}
+#header a:hover{
+    background-color: white;
+    color: #1da1f2;
+}
+#headerTitle{
+    text-align: center;
+    color:white;
+    font-size: 50px;
+}
+#chitLogo{
+    background-image: url(http://image.fg-a.com/birds/talking-bird.gif);
+    background-size: 100% 100%;
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+    position: absolute;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+#pills{
+    width: 100%;
+}
+#pillsDiv{
+    background-color: white;
+    margin-bottom: 10px;
+}
+#featuredChit{
+    height: 308px;
+    border-radius: 10px;
+    text-align: center;
+    display:table-cell;
+    vertical-align: middle;
+    background-color: #1DA1F2;
+}
+#featuredChit h3, p{
+    color: white;
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px 0px !important;
+    border-radius: 0;
+}
+.nav-pills li a{
+    border-radius: 0px;
 }
 
-#header {
-    background-image: url('../Images/tapestry-755294_960_720.jpg');
-    height: 300px;  
-}
+
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
     padding-left: 15px;
@@ -27,4 +110,246 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+
+#registerForm{
+    text-align: center;
+    vertical-align: middle;
+}
+#registerField{
+    margin-left: 50px;
+}
+#registerButton{
+    text-align:left;
+    margin-left: 50px;
+}
+#registerButton input{
+    background-color: #1da1f2;
+    color: white;
+    font-weight: normal;
+    border-radius: 5px;
+}
+#registerBottomText{
+    margin-left: 50px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px;
+}
+#registerBottomText p{
+    color: #8899a6;
+}
+input.btn.btn-default{
+    width: 280px;
+}
+
+
+#loginForm{
+    text-align: left;
+    padding-top: 15px;
+}
+.logInFormDetails{
+    padding-left: 150px
+}
+.thumbLogin{
+    padding: 0;
+}
+#loginThumbCaption{
+    background-color: #F4F4F4;
+    padding: 20px 10px !important;
+}
+#loginThumbCaption p{
+    font-size: 12px;
+    line-height: 13px;
+    color: #8899a6;
+}
+.checkbox{
+    /*margin-left: 20px;*/
+}
+.logInButton{
+    padding-left: 0;
+}
+div.col-md-8.pull-left label{
+    padding-left: 0px;
+    padding-right: 5px;
+}
+div.col-md-2.logInButton {
+    padding-right: 0;
+}
+#LogInButton{
+    background-color: #1da1f2;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+    border: 1px solid #3b88c3;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    width: 70px;
+}
+
+
+
+
+div.container.profileNavigation{
+    padding: 0px;
+}
+.headerBanner{
+    height: 175px;
+    background-color: #0084B4;
+}
+.profilePicContainer{
+    height: 200px;
+    width: 200px;
+    border-radius: 12px;
+    background: white;
+    border: 5px solid white;
+    box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+    position: absolute;
+    z-index: 999;
+    top: 108px;
+    left: 208px;
+}
+#profileNavMenu{
+    padding: 0;
+    margin: 0;
+    /*width: 400px;*/
+    float: left;
+}
+#profileNavMenu ul{
+    padding:0; 
+    margin:0; 
+    list-style:none; 
+    border:0; 
+    /*float:left;*/
+}
+#profileNavMenu ul li{
+    padding:0; 
+    margin:0;  
+    border:0; 
+    /*float:left;*/
+}
+#profileNavMenu ul li a{
+    padding: 13px 10px; 
+    margin:0; 
+    list-style:none; 
+    float:left;
+    text-decoration: none;
+    box-sizing: border-box;
+    /*border-bottom: 4px solid #1da1f2;*/
+}
+.active{
+    border-bottom: 4px solid #1da1f2;
+}
+.profileNavLabel {
+    color: #66757f !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    display:block;
+    line-height: 1;
+    text-align: center;
+    cursor: default;
+
+}
+.profileNavValue {
+    font-size: 14px;
+    text-transform: uppercase;
+    display:block;
+    line-height: 1;
+    text-align: center;
+    cursor: default;
+
+}
+.buttonText{
+    color: #66757f;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+button.btn.btn-secondary.pull-right{
+    background-color: #f5f8fa;
+    background-image: linear-gradient(#fff,#f5f8fa);
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    color: #66757f;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 16px;
+    position: relative;
+    line-height: normal;
+    top: 9px;
+}
+.profileCard{
+    padding: 0 15px;
+    margin: 37px 0 25px 0;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #292f33;
+}
+.profileCard-name{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    word-wrap: break-word;
+    margin: 0;
+}
+.profileCard-name a {
+    color: black !important;
+}
+.profileCard-handler{
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    word-wrap: break-word;
+    line-height: 1;
+}
+.profileCard-handler a {
+    color: #8899a6;
+}
+.profileCard-bio{
+
+}
+.profileCard-joinDate{
+    color: #8899a6;
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 6px;
+    text-align: left;
+}
+.profileHeader li{
+    font-size: 14px;
+    float: left;
+    color: black;
+    list-style: none;
+    padding: 0;
+    display: block;
+    padding: 15px;
+    margin:0;
+}
+ul.profileHeader{
+    margin:0;
+    padding:0;
+    display: block;
+}
+
+
+
+.CenterSide{
+    background-color: white;
+    margin-top: 10px;
+    padding: 0;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    box-shadow: 1px 1px 5px #888888;
+}
+.myProfileChits{
+    height: 92px;
+    background-color: white;
+    list-style: none;
+    border: 1px solid #888888;
+    display: block;
 }

@@ -3,59 +3,67 @@
 }
 <div>
     <header class="container-fluid">
-        <div id="header"class="container-fluid">
-            @Html.Partial("_LoginPartial")
-        </div>  
+        <div id="header" class="container-fluid">
+            <div class="container">
+                <div id="chitLogo"></div>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div>
+                <h1 id="headerTitle">Let's Chit Chat</h1>
+            </div>
+        </div>
 
     </header>
 </div>
+<div class="container-fluid"  id="pillsDiv">
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li><a href="#"><i class="glyphicon glyphicon-search"></i></a></li>
+            <li id="zooKeeper" role="presentation"><a href="#" class="tab-content">Featured</a></li>
+            <li role="presentation"><a href="#" class="tab-content">Sports</a></li>
+            <li role="presentation"><a href="#" class="tab-content">News</a></li>
+            <li role="presentation"><a href="#" class="tab-content">Music</a></li>
+            <li role="presentation"><a href="#" class="tab-content">Entertainment</a></li>
+            <li role="presentation"><a href="#" class="tab-content">Lifestylex</a></li>
+            <li class="nav-item dropdown">
+                <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span> </a>`
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Technology & Science</a>
+                    <a href="#" class="dropdown-item">Arts & Culture</a>
+                    <a href="#" class="dropdown-item">Government Politics</a>
+                    <a href="#" class="dropdown-item">Gaming</a>
+                    <a href="#" class="dropdown-item">9GAG</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
-<ul class="nav nav-pills">
-    <li><a href="#"><i class="glyphicon glyphicon-search"></i></a></li>
-    <li role="presentation"><a href="#">Featured</a></li>
-    <li role="presentation"><a href="#">Sports</a></li>
-    <li role="presentation"><a href="#">News</a></li>
-    <li role="presentation"><a href="#">Music</a></li>
-    <li role="presentation"><a href="#">Entertainment</a></li>
-    <li role="presentation"><a href="#">Lifestylex</a></li>
-    <li class="nav-item dropdown">
-        <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span> </a>`
-        <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Technology & Science</a>
-            <a href="#" class="dropdown-item">Arts & Culture</a>
-            <a href="#" class="dropdown-item">Government Politics</a>
-            <a href="#" class="dropdown-item">Gaming</a>
-            <a href="#" class="dropdown-item">9GAG</a>
-        </div>
-    </li>
-</ul>
 
 <div class="body-content container">
-    <div class="jumbotron">
-        <h1>Chit Chat</h1>
-        <p class="lead">Have a Chitty Day!</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="col-lg-12">
+            <h4>Moments <a href="#">View all</a> </h4>   
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="thumbnail"><img src="" alt="" /></div>
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="col-lg-3">
+            <div class="thumbnail"><img src="" alt="" /></div>
+        </div>
+        <div class="col-lg-3">
+            <div class="thumbnail"><img src="" alt="" /></div>
+        </div>
+        <div class="col-lg-3">
+            <div class="thumbnail" id="featuredChit">
+                <div class="caption">
+                    <h3>New to Chatter?</h3>
+                    <p>Sign up now to get your own personalized timeline!</p>
+                    <p><a href="#" class="btn btn-default" role="button">Sign Up</a></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

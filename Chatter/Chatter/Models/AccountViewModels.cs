@@ -64,6 +64,10 @@ namespace Chatter.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        //[Display(Name = "UserName")]
+        //public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +83,12 @@ namespace Chatter.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "DisplayTitle")]
+        public string DisplayTitle { get; set; }
+
     }
 
     public class ResetPasswordViewModel

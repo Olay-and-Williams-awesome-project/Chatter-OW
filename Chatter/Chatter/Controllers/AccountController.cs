@@ -68,6 +68,7 @@ namespace Chatter.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            //returnUrl = "Chits/Index";
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -79,7 +80,8 @@ namespace Chatter.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    // CHANGED FROM: return RedirectToAction("Index", "Chits");
+                    return RedirectToLocal(returnUrl);                  
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
