@@ -80,8 +80,8 @@ namespace Chatter.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    // CHANGED FROM: return RedirectToAction("Index", "Chits");
-                    return RedirectToLocal(returnUrl);                  
+                    // CHANGED FROM: return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Chits");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
