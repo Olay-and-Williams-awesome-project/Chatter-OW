@@ -153,7 +153,7 @@ namespace Chatter.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { DisplayTitle = model.DisplayTitle, UserName = model.Email, Email = model.Email, JoinedDate = DateTime.Today.ToString() };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

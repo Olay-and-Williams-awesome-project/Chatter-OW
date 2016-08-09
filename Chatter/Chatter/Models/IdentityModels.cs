@@ -13,7 +13,12 @@ namespace Chatter.Models
         public string DisplayTitle { get; set; }
         public string Description { get; set; }
         public string ProfileImage { get; set; }
+        public string JoinedDate { get; set; }
+        public string BirthDate { get; set; }
         public virtual ICollection<Chit> Chits { get; set; }
+
+        public virtual ICollection<ApplicationUser> Followers { get; set; }
+        public virtual ICollection<ApplicationUser> Following { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -25,7 +30,7 @@ namespace Chatter.Models
 
     }
 
-    public class    ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -37,6 +42,16 @@ namespace Chatter.Models
             return new ApplicationDbContext();
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ApplicationUser>()
+               .HasMany(x => x.Followers).WithMany(x => x.Following)
+               .Map(x => x.ToTable("Followers")
+               .MapLeftKey("UserId")
+               .MapRightKey("FollowerId"));
+
+            base.OnModelCreating(modelBuilder);
+        }
         public System.Data.Entity.DbSet<Chatter.Models.Chit> Chits { get; set; }
 
         //public System.Data.Entity.DbSet<Chatter.Models.ApplicationUser> ApplicationUsers { get; set; }

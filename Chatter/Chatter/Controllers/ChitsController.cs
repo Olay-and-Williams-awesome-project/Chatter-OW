@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Chatter.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Chatter.Controllers
 {
@@ -17,7 +19,42 @@ namespace Chatter.Controllers
         // GET: Chits
         public ActionResult Index()
         {
+            if (Request.IsAuthenticated)
+            {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser CurrentUser = UserManager.FindById(User.Identity.GetUserId());
+
+                var followingID = from u in CurrentUser.Following
+                                  select u.Id;
+
+                var chits = db.Chits.Where(p => followingID.Contains(p.User.Id)).ToList();
+
+
+                //if (chits.Count == 0)
+                //{
+                //    chits = db.Chits.ToList();
+                //}
+
+                ViewBag.AllUsers = from u in UserManager.Users
+                                   select u.UserName;
+
+                ViewBag.CurrentUser = CurrentUser;
+                return View(chits);
+            }
+
+           
+             
             return View(db.Chits.ToList());
+        }
+
+        public ActionResult Follow(int? id)
+        {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser CurrentUser = UserManager.FindById(User.Identity.GetUserId());
+            CurrentUser.Following.Add(db.Users.Find(id));
+            db.SaveChanges();
+
+            return View();
         }
 
         // GET: Chits/Details/5
@@ -36,7 +73,6 @@ namespace Chatter.Controllers
         }
 
         // GET: Chits/Create
-        [Authorize(Roles = "canEdit")]
         public ActionResult Create()
         {
             return View();
@@ -47,7 +83,6 @@ namespace Chatter.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
         public ActionResult Create([Bind(Include = "ChitID,ChitText,ChitCreatedAt")] Chit chit)
         {
             if (ModelState.IsValid)
@@ -61,7 +96,6 @@ namespace Chatter.Controllers
         }
 
         // GET: Chits/Edit/5
-        [Authorize(Roles = "canEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,7 +115,6 @@ namespace Chatter.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
         public ActionResult Edit([Bind(Include = "ChitID,ChitText,ChitCreatedAt")] Chit chit)
         {
             if (ModelState.IsValid)
@@ -94,7 +127,6 @@ namespace Chatter.Controllers
         }
 
         // GET: Chits/Delete/5
-        [Authorize(Roles = "canEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,7 +144,6 @@ namespace Chatter.Controllers
         // POST: Chits/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
         public ActionResult DeleteConfirmed(int id)
         {
             Chit chit = db.Chits.Find(id);

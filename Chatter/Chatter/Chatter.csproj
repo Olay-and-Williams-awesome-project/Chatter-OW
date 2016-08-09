@@ -211,6 +211,14 @@
     <Compile Include="Migrations\201608050457025_Update.Designer.cs">
       <DependentUpon>201608050457025_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608081829236_added to user table.cs" />
+    <Compile Include="Migrations\201608081829236_added to user table.Designer.cs">
+      <DependentUpon>201608081829236_added to user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608091722223_added followers and following tables.cs" />
+    <Compile Include="Migrations\201608091722223_added followers and following tables.Designer.cs">
+      <DependentUpon>201608091722223_added followers and following tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chit.cs" />
@@ -308,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608050457025_Update.resx">
       <DependentUpon>201608050457025_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608081829236_added to user table.resx">
+      <DependentUpon>201608081829236_added to user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608091722223_added followers and following tables.resx">
+      <DependentUpon>201608091722223_added followers and following tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
