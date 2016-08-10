@@ -38,12 +38,60 @@ namespace Chatter.Controllers
                 ViewBag.AllUsers = from u in UserManager.Users
                                    select u.UserName;
 
+                if(CurrentUser.Followers.Count() == 0)
+                {
+                    ViewBag.Followers = null;
+                }else
+                {
+                    ViewBag.Followers = CurrentUser.Followers.ToList();
+                }
+
                 ViewBag.CurrentUser = CurrentUser;
                 return View(chits);
-            }
+            } 
+            return View(db.Chits.ToList());
+        }
 
-           
-             
+
+        public void getFollowers()
+        {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser CurrentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            var followingID = from u in CurrentUser.Following
+                              select u.Id;
+
+            var chits = db.Chits.Where(p => followingID.Contains(p.User.Id)).ToList();
+
+            ViewBag.AllUsers = from u in UserManager.Users
+                               select u.UserName;
+
+            if (CurrentUser.Followers.Count() == 0)
+            {
+                ViewBag.Followers = null;
+            }
+            else
+            {
+                ViewBag.Followers = CurrentUser.Followers.ToList();
+            }
+            ViewBag.AllUSers1 = UserManager.Users;
+            ViewBag.CurrentUser = CurrentUser;
+        }
+
+
+
+        // GET: Chits/Following
+        public ActionResult Following()
+        {
+            //UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            //ApplicationUser CurrentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            //var allUsers = from u in UserManager.Users
+            //               select u.UserName;
+            //ViewBag.AllUsers = getFollowers();
+
+            //ViewBag.CurrentUser = CurrentUser;
+            getFollowers();
             return View(db.Chits.ToList());
         }
 
@@ -151,6 +199,7 @@ namespace Chatter.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -244,6 +244,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\Chatter.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chatter.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -295,6 +296,7 @@
     <Content Include="Views\Chits\Details.cshtml" />
     <Content Include="Views\Chits\Edit.cshtml" />
     <Content Include="Views\Chits\Index.cshtml" />
+    <Content Include="Views\Chits\Following.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

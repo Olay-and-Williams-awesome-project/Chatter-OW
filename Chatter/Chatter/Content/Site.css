@@ -337,7 +337,9 @@ ul.profileHeader{
 }
 
 
-
+.RightSideFollowing{
+    padding: 0;
+}
 .CenterSide{
     background-color: white;
     margin-top: 10px;
@@ -352,4 +354,61 @@ ul.profileHeader{
     list-style: none;
     border: 1px solid #888888;
     display: block;
+}
+
+.foloThumb{
+    height: 280px;
+    width: 280px;
+    margin: 10px 5px;
+    padding: 0;
+}
+.followThumbButton{
+    background-color: cadetblue;
+    content: "Yo";
+}
+.followThumbButton:hover{
+    background-color: red;
+    content: none;
+}
+.followThumbButton:hover:before{
+    background-color: red;
+    content: "Unfollow";
+}
+#followingThumbnail{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.followingThumbProfilePic{
+    height:70px !important;
+    width:70px;
+    position:absolute;
+    top: 70px;
+    left: 10px;
+    border-radius: 5px;
+    display:block;
+    cursor: pointer;
+    border: 4px solid white;
+}
+.foloThumbSettings{
+    top: 115px;
+    left: 160px;
+    position: absolute;
+    z-index: 999;
+}
+.thumbnailBanner{
+    width: 100% !important;
+    height: 96px !important;
+}
+.followingCaption{
+    display: block;
+    padding-left: 5px;
+
+}
+.fc1{
+    font-weight: 700;
+    font-size: 18px;
+    cursor: auto;
+    text-align: left;
 }

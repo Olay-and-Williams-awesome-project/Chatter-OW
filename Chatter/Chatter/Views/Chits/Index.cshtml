@@ -1,8 +1,5 @@
 ﻿@model  IEnumerable<Chatter.Models.Chit>
 
-@*@{ 
-    var currentUser = (List<Chatter.Models.ApplicationUser>)ViewBag.CurrentUser;
-}*@
 @{
     ViewBag.Title = "Index";
 }
@@ -25,14 +22,14 @@
                 <div class="col-lg-9" id="profileNavMenu">
                     <ul class="profileNav">
                         <li class="pull-left">
-                            <a href="#" class="profileNavItem pull-left">
+                            <a href="~/Views/Chits/Index.cshtml" class="profileNavItem pull-left">
                                 <span class="profileNavLabel">Chits</span>
                                 <span class="profileNavValue">#</span>
                                 @*@ViewBag.CurrentUser.Chit.Count()*@
                             </a>
                         </li>
                         <li class="pull-left">
-                            <a href="#" class="profileNavItem pull-left">
+                            <a href="Chits/Following" class="profileNavItem pull-left">
                                 <span class="profileNavLabel">Following</span>
                                 <span class="profileNavValue">#</span>
                                 @*@ViewBag.CurrentUser.Following.Count()*@
@@ -128,34 +125,4 @@
     </tr>
 }
 
-</table>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User.DisplayTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Followers)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in ViewBag.AllUsers)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => ViewBag.AllUsers.Followers)
-            </td>*@
-            <td>
-                @*@Html.Action*@
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.ChitID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ChitID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ChitID })*@
-            </td>
-        </tr>
-    }
 </table>

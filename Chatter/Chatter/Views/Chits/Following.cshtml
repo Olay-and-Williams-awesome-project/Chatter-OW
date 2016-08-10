@@ -1,0 +1,152 @@
+﻿@model  IEnumerable<Chatter.Models.Chit>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<header class="container-fluid">
+    <div class="profilePicContainer">
+        @*<img class="profilePic" src="~/Images/tapestry-755294_960_720.jpg" />*@
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="headerBanner">
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: white;">
+        <div class="container profileNavigation">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-9" id="profileNavMenu">
+                <ul class="profileNav">
+                    <li class="pull-left">
+                        <a href="#" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Chits</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Chit.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="Chits/Following" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Following</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Following.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="#" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Followers</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Followers.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="#" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Likes</span>
+                            <span class="profileNavValue">#</span>
+                        </a>
+                    </li>
+                    <li class="EditProfile pull-right"><button type="button" class="btn btn-secondary pull-right"><span class="buttonText">Edit Profile</span></button></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<div class="container-fluid ChitsIndexContent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 leftSide">
+                <div class="profileCard">
+                    <h1 class="profileCard-name"><a href="#"></a></h1>
+                    <h2 class="profileCard-handler"><a href="#">@User.Identity.Name</a></h2>
+                    <p class="profileCard-bio">Something something something</p>
+                    <div class="profileCard-joinDate">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span>Joined @ViewBag.CurrentUser.JoinedDate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 RightSideFollowing">
+                <div class="FollowingProfiles">
+                    @foreach (var item in ViewBag.AllUsers1)
+                    {
+                        <div class="col-lg-4 foloThumb">
+                            <div class="thumbnail" id="followingThumbnail">
+                                <a href="#"><i class="fa fa-cog foloThumbSettings" aria-hidden="true"></i></a>
+                                <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="..." class="followingThumbProfilePic img-responsive" />
+                                <img src="https://i.ytimg.com/vi/pbjTS46W9WI/maxresdefault.jpg" alt="..." class="thumbnailBanner img-responsive">
+                                <div class="caption">
+                                    <div class="followingCaption">
+                                        
+                                        <button class="btn btn-primary pull-right followThumbButton" id="followingButton"></button>
+                                    </div>
+                                    <br /><br />
+                                    <a href="#" class="followingCaption fc1">@item.DisplayTitle</a>
+                                    <a href="#" class="followingCaption">@item.UserName</a>
+                                    <p class="followingCaption">@item.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                @*<div class="profileContent">
+                        <ol>
+                            <li>
+                                <div class="myProfileChits">
+
+                                </div>
+                            </li>
+                        </ol>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.DisplayTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Followers)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.AllUsers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => ViewBag.AllUsers.Followers)
+                </td>*@
+            <td>
+                @if (ViewBag.Followers != null && ViewBag.Followers.Contains(item))
+                {
+                    <button class="btn btn-primary">Unfollow</button>
+                }
+                else
+                {
+                    <button class="btn btn-secondary">Follow</button>
+                }
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ChitID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ChitID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChitID })*@
+            </td>
+        </tr>
+    }
+</table>
+
