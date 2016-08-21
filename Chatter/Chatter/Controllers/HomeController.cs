@@ -11,6 +11,10 @@ namespace Chatter.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Feed", "Chits");
+            }
             return View();
         }
 

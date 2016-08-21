@@ -17,42 +17,42 @@
     <div class="row" style="background-color: white;">
         <div class="container profileNavigation">
             <div class="col-lg-3">
-               
+
             </div>
-                <div class="col-lg-9" id="profileNavMenu">
-                    <ul class="profileNav">
-                        <li class="pull-left">
-                            <a href="~/Views/Chits/Index.cshtml" class="profileNavItem pull-left">
-                                <span class="profileNavLabel">Chits</span>
-                                <span class="profileNavValue">#</span>
-                                @*@ViewBag.CurrentUser.Chit.Count()*@
-                            </a>
-                        </li>
-                        <li class="pull-left">
-                            <a href="Chits/Following" class="profileNavItem pull-left">
-                                <span class="profileNavLabel">Following</span>
-                                <span class="profileNavValue">#</span>
-                                @*@ViewBag.CurrentUser.Following.Count()*@
-                            </a>
-                        </li>
-                        <li class="pull-left">
-                            <a href="#" class="profileNavItem pull-left">
-                                <span class="profileNavLabel">Followers</span>
-                                <span class="profileNavValue">#</span>
-                                @*@ViewBag.CurrentUser.Followers.Count()*@
-                            </a>
-                        </li>
-                        <li class="pull-left">
-                            <a href="#" class="profileNavItem pull-left">
-                                <span class="profileNavLabel">Likes</span>
-                                <span class="profileNavValue">#</span>
-                            </a>
-                        </li>
-                        <li class="EditProfile pull-right"><button type="button" class="btn btn-secondary pull-right"><span class="buttonText">Edit Profile</span></button></li>
-                    </ul>
-                </div>
+            <div class="col-lg-9" id="profileNavMenu">
+                <ul class="profileNav">
+                    <li class="pull-left">
+                        <a href="" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Chits</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Chit.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="Chits/Following" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Following</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Following.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="Chits/Followers" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Followers</span>
+                            <span class="profileNavValue">#</span>
+                            @*@ViewBag.CurrentUser.Followers.Count()*@
+                        </a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="#" class="profileNavItem pull-left">
+                            <span class="profileNavLabel">Likes</span>
+                            <span class="profileNavValue">#</span>
+                        </a>
+                    </li>
+                    <li class="EditProfile pull-right"><button type="button" class="btn btn-secondary pull-right"><span class="buttonText">Edit Profile</span></button></li>
+                </ul>
+            </div>
         </div>
-        
+
     </div>
 </header>
 
@@ -78,22 +78,65 @@
                         <li><a href="#">Media</a></li>
                     </ul>
                 </div>
-                @*<div class="profileContent">
-                    <ol>
-                        <li>
-                            <div class="myProfileChits">
+                <div class="profileContent">
+                    @foreach (var item in Model)
+                    {
+                        if (User.Identity.Name == item.User.Email)
+                        {
+                            <div class="ChitStream clearfix">
+                                <div class="chitStreamProfileImage">
+                                    <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="..." class="img-responsive" />
+                                </div>
+
+                                <div class="chitStreamHeader">
+                                    <a href="#" class="followingCaption fc1" id="chitStreamHeader">
+                                        @if (@item.User.DisplayTitle != null)
+                                        {
+                                            @item.User.DisplayTitle
+                                        }
+                                        else
+                                        {
+                                            @Html.Display("Olay")
+                                        }
+                                    </a>
+                                    <a href="#" class="followingCaption" id="chitStreamHeader1">
+                                        @if (@item.User.UserName != null)
+                                        {
+                                            @item.User.UserName
+                                        }
+                                        else
+                                        {
+                                            @Html.Display("KoOlay_d")
+                                        }
+                                    </a>
+                                </div>
+
+                                <div class="chitStreamContent">
+                                    <p class="chitStreamText">@item.ChitText</p>
+                                </div>
+
+                                <div class="chitStreamFooter">
+                                    <div class="chitStreamAction">
+                                        <ul class="ActionIcons">
+                                            <li><a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
                             </div>
-                        </li>
-                    </ol>
-                </div>*@
+                        }
+                    }
+                </div>
             </div>
             <div class="col-lg-3 RightSide"></div>
         </div>
     </div>
 </div>
 
-<h2>Index</h2>
+@*<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -109,20 +152,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChitText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChitCreatedAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ChitID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ChitID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ChitID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChitText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChitCreatedAt)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ChitID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ChitID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ChitID })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@

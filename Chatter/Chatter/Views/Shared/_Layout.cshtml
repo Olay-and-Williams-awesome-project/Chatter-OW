@@ -20,34 +20,119 @@
     </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
+        </div>*@
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="navbar-default navbar ChitNavBar">
+                <div class="container ChitNavBar">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse ChitNavBar">
+                        <ul class="nav navbar-nav">
+                            <li class="chitNavItems"><a href="Feed"><i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i> Home</a></li>
+                            <li class="chitNavItems"><a href="#"><i class="fa fa-bolt fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Moments</a></li>
+                            <li class="chitNavItems"><a href="#"><i class="fa fa-bell fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Notifications</a></li>
+                            <li class="chitNavItems"><a href="#"><i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Messages</a></li>
+                        </ul>
 
-    
-    <div >
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+                        <div class="pull-right">
+                            <div class="search searchNav">
+                                @using (Html.BeginForm("Chits", "Following", FormMethod.Get))
+                                {
+                                    @Html.TextBox("searchString", null, new { @class = "serchNavStyle", @placeholder = "Search Chatter" })
+                                }
+                            </div>
+                            @if (ViewBag.CurrentUser == null)
+                            {
+                                @Html.ActionLink("Log In", "Login", "Account")
+                            }
+                            else
+                            {
+                                <ul class="nav navbar-nav navbar-right" id="rightNav">
+
+                                    <li class="dropdown chitNavItems">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="rightNavImage">
+                                            <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="profile and settings" class="img-responsive" title="profile and settings" />
+                                        </a>
+                                        <ul class="dropdown-menu" id="navDropDown">
+                                            <li class="navCurrentUser">
+                                                <a href="">
+                                                    <div class="navbarDropdownContent">
+                                                        <div class="contentValue">
+                                                            @if (ViewBag.CurrentUser == null)
+                                                            {
+                                                                <b>Yoohoo</b>
+                                                            }
+                                                            else
+                                                            {
+                                                                <b>@ViewBag.CurrentUser.DisplayTitle</b>
+                                                            }
+                                                            <small>View profile</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="">Lists</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="">Help</a></li>
+                                            <li><a href="">Keyboard shortcuts</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="">Settings</a></li>
+                                            <li><a href="">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                    @*<li class="chitNavItems">
+                                            <button class="btn btn-primary chitButton">
+                                                <span><i class="fa fa-trash-o fa-lg fa-fw"></i></span>
+                                                <span>Tweet</span>
+                                            </button>
+                                            <a class="btn btn-primary" href="#">
+                                            <i class="fa fa-trash-o fa-lg fa-fw"></i> Notifications
+                                        </a>
+                                        </li>*@
+                                </ul>
+                            }
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>
+            </div>
+
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

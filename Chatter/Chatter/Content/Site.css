@@ -1,5 +1,6 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    padding-top: 0 !important;
     padding-bottom: 20px;
     background-color: #F5F8FA;
     color:#292f33;
@@ -363,16 +364,30 @@ ul.profileHeader{
     padding: 0;
 }
 .followThumbButton{
-    background-color: cadetblue;
-    content: "Yo";
+    background-color: #1da1f2;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+    color: #fff;
+    border: 1px solid #3b88c3;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    font-size: 13px;
+    font-weight: bold;
+    line-height: normal;
+    display: inline-block;
 }
-.followThumbButton:hover{
-    background-color: red;
-    content: none;
+#followingButton:hover span{
+    display:none;
 }
-.followThumbButton:hover:before{
-    background-color: red;
-    content: "Unfollow";
+#followingButton:hover:before{
+    content:"Unfollow";
+}
+#followingButton:hover{
+    background-color: #e81c4f;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+    color: #fff;
+    border: 1px solid #1da1f2;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+    font-size: 13px;
+    text-decoration: none;
 }
 #followingThumbnail{
     padding: 0;
@@ -411,4 +426,391 @@ ul.profileHeader{
     font-size: 18px;
     cursor: auto;
     text-align: left;
+}
+
+#leftColumContents{
+    padding-left: 0;
+}
+.dashboard{
+    float:left;
+    width: 290px;
+    /*background-color: white;*/
+    height: 690px;
+    margin: 10px 10px 0 0;
+}
+.dashProfileCard{
+    border: 1px solid #e1e8ed;
+    background: #fff;
+    border-radius: 6px;
+    line-height: 16px;
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+#dashProfile{
+    color: #0084B4;
+    background-color: #0084B4;
+    width: 100%;
+    height: 95px;
+    border-radius: 4px 4px 0 0;
+    display: block;
+}
+.dashProfileCard a:hover{
+    color: #0084B4;
+}
+.dashAvatar{
+    background-color: #fff;
+    border-radius: 6px;
+    margin: -30px 0 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+    display: inline-block!important;
+}
+.dashAvatar img{
+    height: 72px;
+    width: 72px;
+    border-radius: 7px;
+    border: 2px solid #fff;
+    color: white;
+}
+.userInfo{
+    position: absolute;
+    top: 103px;
+    left: 90px;
+    width: 185px;
+    font-size: 14px;
+}
+.userInfoName{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+}
+.userScreenName a{
+    font-size: 12px;
+    text-align: left;
+    color: #66757f !important;
+}
+.userScreenName a:hover{
+    color: #0084B4;
+}
+.userStats{
+    margin-left: 11px;
+    padding: 10px 0;
+}
+.userStatsList{
+    table-layout: fixed;
+    box-sizing: border-box;
+    display: table;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    list-style: none;
+    line-height: 16px;
+}
+.userStatsList-stat{
+    vertical-align: bottom;
+    display: table-cell;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.userStatsList-link{
+    color: #0084B4;
+    text-decoration: none !important;
+    display: block;
+}
+.userStatsList-header{
+    color: #8899a6;
+    font-size: 10px;
+    letter-spacing: .02em;
+    overflow: hidden;
+    text-transform: uppercase;
+    display:block;
+}
+.userStatsList-value{
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 3px;
+    color: #0084B4;
+}
+.NewChit{
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    padding: 10px 12px;
+    color: #292f33;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: #E5F2F7;
+    margin: 10px 0 0 0;
+    height: 60px;
+    width: 600px;
+}
+.newChitProfileImage{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    top: 10px;
+    left: 25px;
+}
+.newChitText{
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+
+.ChitStream.clearfix{
+    height: auto;
+    width: 600px;
+    background-color: white;
+    cursor: pointer;
+    border-bottom: 1px solid #e1e8ed;
+    padding: 9px 12px;
+    /*min-height: 51px;*/
+    position: relative;
+    /*display: block;*/
+}
+.chitStreamProfileImage{
+    height: 48px;
+    width: 48px;
+    position: absolute;
+}
+.chitStreamHeader{
+    width: 525px;
+    float: right;
+}
+#chitStreamHeader{
+    display: inline !important;
+}
+#chitStreamHeader1{
+    display: inline !important;
+    text-decoration: none;
+    pointer-events: none;
+    color: #8899a6;
+    padding-left: 0;
+}
+.newChitCreate{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    max-width: 800px;
+    width: 500px;
+}
+.chitStreamContent{
+    display: block;
+    width: 525px;
+    float: right;
+    margin-top: 5px;
+}
+.chitStreamText{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 18px;
+    font-size: 14px;
+    margin: 0;
+    padding-left: 5px;
+}
+.chitStreamFooter{
+    display: block;
+    width: 525px;
+    float: right;
+    margin-top: 10px;
+}
+.ActionIcons{
+    padding-left: 5px;
+    list-style: none;
+}
+.ActionIcons li{
+    display: inline-block;
+    padding-right: 80px;
+}
+
+
+#ChitNavBar{
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    margin-bottom: 0 !important;
+
+}
+div.navbar-default.navbar.ChitNavBar{
+    margin-bottom: 0;
+}
+div#navbar.navbar-collapse.collapse.ChitNavBar{
+    margin-bottom: 0;
+}
+
+div.container.ChitNavBar{
+    margin-bottom: 0;
+}
+
+.ChitNavBar{
+    padding: 0;
+    margin-bottom: 5px;
+}
+li.chitNavItems{
+    height: 50px;
+}
+li.chitNavItems a{
+    padding: 15px 15px 15px 0;
+}
+li.chitNavItems a:hover{
+    padding-bottom: 10px;
+    border-bottom: 5px solid #0084B4;
+    /*transition: all .1s ease-in-out;*/
+    text-decoration: none;
+    color: #0084B4 !important;
+}
+#navDropDown{
+    margin: 3px -7px 0 0;
+}
+.contentValue b{
+    color: black;
+}
+.ChitNavBar a:active{
+    text-decoration: none;
+    background-color: transparent;
+}
+#navDropDown li a{
+    padding: 5px 20px;
+    color: #66757f !important;
+}
+#navDropDown li a:hover{
+    border: 0;
+    background-color: #0084B4;
+    color: white !important;
+}
+#navDropDown:hover{
+    color: white !important;
+}
+.navCurrentUser small{
+    display: block;
+    color: #66757f !important;
+}
+
+#rightNav{
+    display: inline-block;
+}
+#rightNav button{
+    margin-top: 10px;
+    color: #fff;
+    height: 32px;
+    opacity: 1;
+    font-weight: 500;
+    line-height: 1;
+    background-color: #0084B4;
+    background: rgba(0,132,180,.8);
+    border: 1px solid transparent;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+
+}
+#rightNav button:hover{
+    background-color: red;
+}
+#rightNav img{
+    height: 32px;
+    width: 32px;
+    list-style: none;
+    border-radius: 4px;
+}
+#rightNavImage{
+    padding: 10px 15px 10px 5px;
+}
+#rightNavImage:hover{
+    /*padding-bottom: 15px;*/
+    border-bottom: none;
+}
+.searchNav{
+    display: inline-block;
+}
+.serchNavStyle{
+    height: 32px;
+    box-sizing: border-box;
+    padding: 5px 27px 6px 12px;
+    font-size: 12px;
+    line-height: 1;
+    color: #292f33;
+    background-color: #f5f8fa;
+    border: 1px solid #e1e8ed;
+    border-radius: 21px;
+    transition: all .2s ease-in-out;
+    margin: 10px 10px 0 10px;
+}
+
+#generateQr{
+    position: absolute;
+    top: 350px;
+    right: 30px;
+}
+#testQrCode{
+    height: 250px;
+    width: 250px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    #registerField, #registerButton, #registerBottomText{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    #registerField, #registerButton, #registerBottomText{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    #registerField, #registerButton, #registerBottomText{
+        margin-left: 80px;
+    }
+    #registerBottomText{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    #registerField, #registerButton, #registerBottomText{
+        margin-left: 60px;
+    }
+    #registerBottomText{
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    #registerField, #registerButton, #registerBottomText{
+        margin-left: 30px;
+    }
+    #registerBottomText{
+        padding-left: 0;
+        margin-left: 60px;
+    }
 }

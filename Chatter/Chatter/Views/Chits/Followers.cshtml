@@ -3,50 +3,10 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @{
-    ViewBag.Title = "Following";
+    ViewBag.Title = "Followers";
 }
-
-<div class="container-fluid ChitNavBar" id="ChitNavBar">
-    <div class="navbar-default navbar ChitNavBar">
-        <div class="container ChitNavBar">
-            <div id="navbar" class="navbar-collapse collapse ChitNavBar">
-                <ul class="nav navbar-nav">
-                    <li class="chitNavItems"><a href="Feed"><i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i> Home</a></li>
-                    <li class="chitNavItems"><a href="#"><i class="fa fa-bolt fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Moments</a></li>
-                    <li class="chitNavItems"><a href="#"><i class="fa fa-bell fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Notifications</a></li>
-                    <li class="chitNavItems"><a href="#"><i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Messages</a></li>
-                </ul>
-
-                <div class="pull-right">
-                    <div class="search searchNav">
-                        @using (Html.BeginForm("Chits", "Following", FormMethod.Get))
-                        {
-                            @Html.TextBox("searchString",null, new { @class = "serchNavStyle", @placeholder = "Search Chatter" })
-                        }
-                    </div>
-                    <ul class="nav navbar-nav navbar-right" id="rightNav">
-                        <li class="chitNavItems">
-                            <a href="#" id="rightNavImage">
-                                <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="profile and settings" class="img-responsive" title="profile and settings"/>
-                            </a>
-                        </li>
-                        <li class="chitNavItems">
-                            <button class="btn btn-primary chitButton">
-                                <span><i class="fa fa-trash-o fa-lg fa-fw"></i></span>
-                                <span>Chit</span>
-                            </button>
-                            @*<a class="btn btn-primary" href="#">
-                    <i class="fa fa-trash-o fa-lg fa-fw"></i> Notifications
-                </a>*@
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
 <header class="container-fluid">
     <div class="profilePicContainer">
         @*<img class="profilePic" src="~/Images/tapestry-755294_960_720.jpg" />*@
@@ -73,14 +33,14 @@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="" class="profileNavItem pull-left">
+                        <a href="Chits/Following" class="profileNavItem pull-left">
                             <span class="profileNavLabel">Following</span>
                             <span class="profileNavValue">#</span>
                             @*@ViewBag.CurrentUser.Following.Count()*@
                         </a>
                     </li>
                     <li class="pull-left">
-                        <a href="Followers" class="profileNavItem pull-left">
+                        <a href="" class="profileNavItem pull-left">
                             <span class="profileNavLabel">Followers</span>
                             <span class="profileNavValue">#</span>
                             @*@ViewBag.CurrentUser.Followers.Count()*@
@@ -125,7 +85,7 @@
                                 <img src="https://i.ytimg.com/vi/pbjTS46W9WI/maxresdefault.jpg" alt="..." class="thumbnailBanner img-responsive">
                                 <div class="caption">
                                     <div class="followingCaption">
-                                        
+
                                         <button class="btn btn-primary pull-right followThumbButton" id="followingButton" onclick="followText()"><span id="folloOrUnfollo">Following</span></button>
                                     </div>
                                     <br /><br />
@@ -189,18 +149,3 @@
         </tr>
     }
 </table>
-
-<script>
-    //$('.followThumbButton').click(function () {
-    //    var $this = $('folloOrUnfollo');
-    //    $this.toggleClass('folloOrUnfollo');
-    //    if ($this.hasClass('folloOrUnfollo')) {
-    //        $this.text('Following');
-    //    } else {
-    //        $this.text('Follow');
-    //    }
-    //});
-    function followText() {
-        document.getElementById('folloOrUnfollo').innerHTML = "Follow"
-    }
-</script>

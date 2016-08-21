@@ -3,62 +3,67 @@
     ViewBag.Title = "Join Chatter today";
 }
 
-<div class="container" id="registerForm">
-    <h2>@ViewBag.Title.</h2>
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-6" id="registerField">
-                    @Html.TextBoxFor(m => m.DisplayTitle, new { @class = "form-control", @placeholder = "Display Name"})
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="container" id="registerForm">
+            <h2>@ViewBag.Title.</h2>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="registerField">
+                            @Html.TextBoxFor(m => m.DisplayTitle, new { @class = "form-control", @placeholder = "Display Name" })
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-6" id="registerField">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="registerField">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-6" id="registerField">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="registerField">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-6" id="registerField">
-                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="registerField">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                        </div>
+                    </div>
                 </div>
-            </div>           
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-6" id="registerButton">
-                    <input type="submit" class="btn btn-default" value="Register" />
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="registerButton">
+                            <input type="submit" class="btn btn-default" value="Register" />
+                        </div>
+                    </div>
                 </div>
-            </div>            
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-9" id="registerBottomText">
+                        <p>By signing up, you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, including <a href="#">Cookie Use</a>. Others will be able to find you by email or phone number when provided.</p>
+                    </div>
+                </div>
+            }
+
         </div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-3" id="registerBottomText">
-                <p>By signing up, you agree to the <a href="#" >Terms of Service</a> and <a href="#">Privacy Policy</a>, including <a href="#">Cookie Use</a>. Others will be able to find you by email or phone number when provided.</p>
-            </div>
-        </div>
-    }
-
+    </div>
 </div>
 
 @section Scripts {

@@ -11,7 +11,7 @@ namespace Chatter.Models
         public int ChitID { get; set; }
         public string ChitText { get; set; }
         [DataType(DataType.DateTime)]
-        public string ChitCreatedAt { get; set; }
+        public DateTime ChitCreatedAt { get; set; }
 
         public virtual ApplicationUser User { get; set; }
     }

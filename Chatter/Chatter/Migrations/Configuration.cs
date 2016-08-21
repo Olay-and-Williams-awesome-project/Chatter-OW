@@ -12,25 +12,28 @@ namespace Chatter.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
-
-        bool AddUserAndRole(ApplicationDbContext context)
-        {
-            IdentityResult ir;
-            var rm = new RoleManager<IdentityRole>
-                (new RoleStore<IdentityRole>(context));
-            ir = rm.Create(new IdentityRole("canEdit"));
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser()
-            {
-                UserName = "user1@contoso.com",
-            };
-            ir = um.Create(user, "P_assw0rd1");
-            if (ir.Succeeded == false)
-                return ir.Succeeded;
-            ir = um.AddToRole(user.Id, "canEdit");
-            return ir.Succeeded;
-        }
+        
+        ////bool AddUserAndRole(ApplicationDbContext context)
+        ////{
+        ////    IdentityResult ir;
+        ////    var rm = new RoleManager<IdentityRole>
+        ////        (new RoleStore<IdentityRole>(context));
+        ////    ir = rm.Create(new IdentityRole("canEdit"));
+        ////    var um = new UserManager<ApplicationUser>(
+        ////        new UserStore<ApplicationUser>(context));
+        ////    var user = new ApplicationUser()
+        ////    {
+        ////        UserName = "user1@contoso.com",
+        ////        JoinedDate = "8/11/2016 12:00:00 AM",
+        ////        DisplayTitle = "Contoso",
+        ////        Email = "user1@contoso.com"
+        ////    };
+        ////    ir = um.Create(user, "P_assw0rd1");
+        ////    if (ir.Succeeded == false)
+        ////        return ir.Succeeded;
+        ////    ir = um.AddToRole(user.Id, "canEdit");
+        ////    return ir.Succeeded;
+        ////}
 
         protected override void Seed(Chatter.Models.ApplicationDbContext context)
         {
@@ -46,19 +49,19 @@ namespace Chatter.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            AddUserAndRole(context);
-            context.Chits.AddOrUpdate(p => p.ChitText,
-                new Chit
-                {
-                    ChitText = "Hello my first Chit",
-                    ChitCreatedAt = DateTime.Today.ToString()
-                },
-                new Chit
-                {
-                    ChitText = "I just sold Chit for 2billion!",
-                    ChitCreatedAt = DateTime.Today.ToString()
-                }
-                );
+            ////AddUserAndRole(context);
+            ////context.Chits.AddOrUpdate(p => p.ChitText,
+            ////    new Chit
+            ////    {
+            ////        ChitText = "Hello my first Chit",
+            ////        ChitCreatedAt = DateTime.Today,
+            ////    },
+            ////    new Chit
+            ////    {
+            ////        ChitText = "I just sold Chit for 2billion!",
+            ////        ChitCreatedAt = DateTime.Today
+            ////    }
+            ////    ); 
         }
     }
 }

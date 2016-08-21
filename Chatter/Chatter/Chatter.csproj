@@ -78,6 +78,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="QRCoder, Version=1.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.1.9\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -130,6 +134,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.1.9\lib\net40\UnityEngine.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -219,6 +227,10 @@
     <Compile Include="Migrations\201608091722223_added followers and following tables.Designer.cs">
       <DependentUpon>201608091722223_added followers and following tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608121357180_Changed chits from string to datetime.cs" />
+    <Compile Include="Migrations\201608121357180_Changed chits from string to datetime.Designer.cs">
+      <DependentUpon>201608121357180_Changed chits from string to datetime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chit.cs" />
@@ -256,7 +268,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -297,6 +311,8 @@
     <Content Include="Views\Chits\Edit.cshtml" />
     <Content Include="Views\Chits\Index.cshtml" />
     <Content Include="Views\Chits\Following.cshtml" />
+    <Content Include="Views\Chits\Followers.cshtml" />
+    <Content Include="Views\Chits\Feed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608091722223_added followers and following tables.resx">
       <DependentUpon>201608091722223_added followers and following tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608121357180_Changed chits from string to datetime.resx">
+      <DependentUpon>201608121357180_Changed chits from string to datetime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

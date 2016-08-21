@@ -53,7 +53,5 @@ namespace Chatter.Models
             base.OnModelCreating(modelBuilder);
         }
         public System.Data.Entity.DbSet<Chatter.Models.Chit> Chits { get; set; }
-
-        //public System.Data.Entity.DbSet<Chatter.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

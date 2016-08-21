@@ -1,0 +1,227 @@
+﻿@model  IEnumerable<Chatter.Models.Chit>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Feed";
+}
+@*<div class="container-fluid ChitNavBar" id="ChitNavBar">
+    <div class="navbar-default navbar ChitNavBar">
+        <div class="container ChitNavBar">
+            <div id="navbar" class="navbar-collapse collapse ChitNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="chitNavItems"><a href="Feed"><i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i> Home</a></li>
+                    <li class="chitNavItems"><a href="#"><i class="fa fa-bolt fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Moments</a></li>
+                    <li class="chitNavItems"><a href="#"><i class="fa fa-bell fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Notifications</a></li>
+                    <li class="chitNavItems"><a href="#"><i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>&nbsp; Messages</a></li>
+                </ul>
+
+                <div class="pull-right">
+                    <div class="search searchNav">
+                        @using (Html.BeginForm("Chits", "Following", FormMethod.Get))
+                        {
+                            @Html.TextBox("searchString", null, new { @class = "serchNavStyle", @placeholder = "Search Chatter" })
+                        }
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" id="rightNav">
+                        <li class="chitNavItems">
+                            <a href="#" id="rightNavImage">
+                                <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="profile and settings" class="img-responsive" title="profile and settings" />
+                            </a>
+                        </li>
+                        <li class="chitNavItems">
+                            <button class="btn btn-primary chitButton">
+                                <span><i class="fa fa-trash-o fa-lg fa-fw"></i></span>
+                                <span>Chit</span>
+                            </button>*@
+                            @*<a class="btn btn-primary" href="#">
+                                    <i class="fa fa-trash-o fa-lg fa-fw"></i> Notifications
+                                </a>*@
+                        @*</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>*@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="leftColumContents">
+
+                <div class="dashboard">
+                    <div class="dashProfileCard">
+                        <a href="#" id="dashProfile"></a>
+
+                        <div class="dashContent">
+                            <a href="#" class="dashAvatar">
+                                <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="..." class="img-responsive" />
+                            </a>
+
+                            <div class="userInfo">
+                                <div class="userInfoName">
+                                    <a href="#">@ViewBag.CurrentUser.DisplayTitle</a>
+                                </div>
+                                <span class="userScreenName">
+                                    <a href="">@@@ViewBag.CurrentUser.UserName</a>
+                                </span>
+                            </div>
+
+                            <div class="userStats">
+                                <ul class="userStatsList">
+                                    <li class="userStatsList-stat">
+                                        <a href="" class="userStatsList-link">
+                                            <span class="userStatsList-header">Chits</span>
+                                            <span class="userStatsList-value">@ViewBag.CurrentUser.Chits.Count</span>
+                                        </a>
+                                    </li>
+                                    <li class="userStatsList-stat">
+                                        <a href="" class="userStatsList-link">
+                                            <span class="userStatsList-header">Following</span>
+                                            <span class="userStatsList-value">@ViewBag.CurrentUser.Following.Count</span>
+                                        </a>
+                                    </li>
+                                    <li class="userStatsList-stat">
+                                        <a href="" class="userStatsList-link">
+                                            <span class="userStatsList-header">Followers</span>
+                                            <span class="userStatsList-value">@ViewBag.CurrentUser.Followers.Count</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                @*//CurrentUser.DisplayTitle
+                //CurrentUser.UserName
+                //CurrentUser.Chits.Count()
+                //CurrentUser.Followers.Count()*@
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="NewChit">
+                    <div class="newChitProfileImage">
+                        <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="..." class="img-responsive" />
+                    </div>
+                    @*@using (Html.BeginForm("Feed", "Chits", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <form role="form">
+                                <div class="form-group">
+                                    <input type="submit" placeholder="What's going on?" class="form-control newChitText" />
+                                </div>
+                            </form>
+                        }*@
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <p>
+                            @Html.TextBox("ChitText", null, new { @class = "form-control newChitCreate", @placeholder = "Whats going on?" })
+                        </p>
+                    }
+
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="ChitStream clearfix">
+                        <div class="chitStreamProfileImage">
+                            <img src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g87/29987/29987_1277426570_large.jpg" alt="..." class="img-responsive" />
+                        </div>
+
+                        <div class="chitStreamHeader">
+                            <a href="#" class="followingCaption fc1" id="chitStreamHeader">
+                                @if (@item.User.DisplayTitle != null)
+                                {
+                                    @item.User.DisplayTitle
+                                }
+                                else
+                                {
+                                    @Html.Display("Olay")
+                                }
+                            </a>
+                            <a href="#" class="followingCaption" id="chitStreamHeader1">
+                                @if (@item.User.UserName != null)
+                                {
+                                    @item.User.UserName
+                                }
+                                else
+                                {
+                                    @Html.Display("KoOlay_d")
+                                }
+                            </a>
+                        </div>
+
+                        <div class="chitStreamContent">
+                            <p class="chitStreamText">@item.ChitText</p>
+                        </div>
+
+                        <div class="chitStreamFooter">
+                            <div class="chitStreamAction">
+                                <ul class="ActionIcons">
+                                    <li><a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="dashboard">
+                    <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                    <div class="qrCodeTester pull-right target" id="target">
+                        <img src="@Url.Action("myAction", "Chits")" alt="qr code" id="testQrCode" />
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    hide(document.querySelectorAll('.target'));
+    
+    function hide(elements) {
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = 'none';
+        }
+    }
+    function displayQr() {
+        var element = document.getElementById('target'),
+            style = window.getComputedStyle(element),
+            display = style.getPropertyValue('display')
+
+        //alert(display); // testing
+
+        if (display == "none") {
+            show(document.querySelectorAll('.target'));
+
+            function show(elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = 'block';
+                }
+            }
+        } else {
+            hide(document.querySelectorAll('.target'));
+        }
+        
+    }
+    
+</script>
+@*<script>
+    function showQrCode() {
+        document.getElementById("generateQr").style.display = "block";
+    }
+</script>*@
