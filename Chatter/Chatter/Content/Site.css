@@ -763,6 +763,26 @@ li.chitNavItems a:hover{
     #registerField, #registerButton, #registerBottomText{
         margin-left: 0;
     }
+    .dashAvatar{
+        position: relative;
+    }
+    .dashboard{
+        width: 100%;
+        height: auto
+    }
+    .NewChit{
+        width: 100%
+    }
+    #ChitText{
+        width: 80%;
+    }
+    .chitStreamHeader, .chitStreamContent, .chitStreamFooter{
+        float: none;
+        margin-left: 70px;
+    }
+    .ChitStream.clearfix{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -772,6 +792,30 @@ li.chitNavItems a:hover{
     }
     #registerField, #registerButton, #registerBottomText{
         margin-left: 0;
+    }
+    .dashAvatar{
+        position: relative;      
+    }
+    .dashboard{
+        width: 100%;
+        height: auto;
+    }
+    .NewChit{
+        width: 100%
+    }
+    #ChitText{
+        width: 87%;
+    }
+    .ChitStream.clearfix{
+        width: 100%;
+    }
+    .chitStreamHeader, .chitStreamContent, .chitStreamFooter{
+        float: none;
+        margin-left: 70px;
+    }
+    .dashProfileCard{
+        margin-left: 13px;
+        width: 98%;
     }
 }
 
@@ -786,7 +830,35 @@ li.chitNavItems a:hover{
     #registerBottomText{
         padding-left: 0;
     }
+    .ChitNavBar{
+
+    }
+    ul.nav.navbar-nav{
+
+    }
+    .logInFormDetails{
+        padding-left: 70px !important;
+    }
+    .dashAvatar{
+        position: relative;
+    }
+    .dashboard{
+        width: 100%;
+    }
+    .NewChit{
+        width: 100%
+    }
+    #ChitText{
+        width: 75%;
+    }
+    .ActionIcons li{
+        padding-right: 40px !important;
+    }
+    #feedContainer-Fluid{
+        overflow-x: hidden;
+    }
 }
+
 
 @media screen and (max-width: 375px) {
     body{
@@ -799,7 +871,23 @@ li.chitNavItems a:hover{
     #registerBottomText{
         padding-left: 0;
     }
+    .logInFormDetails{
+        padding-left: 20px !important;
+    }
+    .dashAvatar{
+        position: relative;
+    }
+    .dashboard{
+        width: 100%;
+    }
+    #ChitText{
+        width: 70%;
+    }
+    ul.ActionIcons li{
+        padding-right: 20px !important;
+    }
 }
+
 
 @media screen and (max-width: 320px) {
     body{
@@ -812,5 +900,17 @@ li.chitNavItems a:hover{
     #registerBottomText{
         padding-left: 0;
         margin-left: 60px;
+    }
+    .dashAvatar{
+        position: relative;
+    }
+    .dashboard{
+        width: 100%;
+    }
+    .NewChit{
+        width: 100%
+    }
+    #ChitText{
+        width: 66%;
     }
 }
