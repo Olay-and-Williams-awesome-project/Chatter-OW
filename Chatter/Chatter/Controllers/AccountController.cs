@@ -137,7 +137,8 @@ namespace Chatter.Controllers
         }
 
         //
-        // GET: /Account/Register
+        // GET: /Account/
+
         [AllowAnonymous]
         public ActionResult Register()
         {
